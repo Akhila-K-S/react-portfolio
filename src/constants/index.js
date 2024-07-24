@@ -122,3 +122,9 @@ export const CONTACT = {
   phoneNo: "+971 562 453 920",
   email: "kskahilaofcl@gmail.com",
 };
+
+export const CONTACT_LINKS = {
+  linkedIn: "https://www.linkedin.com/in/akhila-k-s-169808204/",
+  gitHub: "https://github.com/Akhila-K-S",
+  email: "ksakhilaofcl@gmail.com",
+};
