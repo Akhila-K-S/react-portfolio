@@ -5,7 +5,8 @@ import ePackenPic from "../assets/projects/epacken-crm.png";
 import nestPic from "../assets/projects/Nest.webp";
 import foodMaPic from "../assets/projects/foodmazone.webp";
 import smartfolioPic from "../assets/projects/smarfolio.svg";
-import kibsonsPic from "../assets/projects/epacken-crm.png"; // TODO: add a screenshot for Kibsons and update this path
+// import kibsonsPic from "../assets/projects/epacken-crm.png"; // TODO: add a screenshot for Kibsons and update this path
+import kibsonsPic from "../assets/projects/kibsons.png";
 
 export const HERO_CONTENT = `I'm Akhila K S, a dynamic Software Engineer crafting powerful, cross-platform mobile and web applications with React Native, React.js, and Next.js. I combine modern front-end engineering with AI-assisted development using Claude AI, ChatGPT, Gemini, GitHub Copilot, and Cursor Agent to ship features faster, improve code quality, and solve complex problems with greater efficiency.`;
 
