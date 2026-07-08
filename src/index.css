@@ -6,3 +6,9 @@
 :root {
   font-family: "Inter", sans-serif;
 }
+
+@layer components {
+  .gradient-text {
+    @apply tracking-tight bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent;
+  }
+}
