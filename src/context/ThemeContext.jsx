@@ -17,6 +17,7 @@ export const applyTheme = (theme) => {
     localStorage.setItem("theme", theme);
 };
 
+/** @param {import('../types').ThemeProviderProps} props */
 export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState(getStoredTheme);
 

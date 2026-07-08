@@ -15,6 +15,7 @@ const cardVariants = {
 
 const VISIBLE_TECH_COUNT = 6;
 
+/** @param {import('../types').ProjectCardProps} props */
 const ProjectCard = ({ project }) => {
     const [expanded, setExpanded] = useState(false);
     const [showAllTech, setShowAllTech] = useState(false);

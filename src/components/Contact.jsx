@@ -53,6 +53,7 @@ const SOCIAL_LINKS = [
     { label: "Email", href: `mailto:${CONTACT_LINKS.email}`, icon: HiOutlineEnvelope },
 ];
 
+/** @param {import('../types').ContactCardProps} props */
 const ContactCard = ({ item, copiedId, onCopy }) => {
     const Icon = item.icon;
     const isCopied = copiedId === item.id;

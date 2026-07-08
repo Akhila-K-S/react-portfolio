@@ -13,6 +13,7 @@ const cardVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
+/** @param {import('../types').ExperienceCardProps} props */
 const ExperienceCard = ({ experience, index, isLast }) => {
     const [expanded, setExpanded] = useState(false);
     const isLong = experience.description.length > 220;

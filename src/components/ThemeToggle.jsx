@@ -1,6 +1,7 @@
 import { useTheme } from "../context/ThemeContext";
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi2";
 
+/** @param {import('../types').ThemeToggleProps} props */
 const ThemeToggle = ({ className = "" }) => {
     const { theme, toggleTheme } = useTheme();
 

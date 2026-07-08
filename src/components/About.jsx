@@ -4,17 +4,16 @@ import { ABOUT_TEXT } from "../constants";
 import { motion } from "framer-motion";
 import {
     HiOutlineBriefcase,
-    HiOutlineCodeBracket,
+    HiOutlineCloud,
     HiOutlineDevicePhoneMobile,
     HiOutlineSparkles,
-    HiOutlineUsers,
 } from "react-icons/hi2";
 
 const HIGHLIGHTS = [
-    { label: "4+ Years", description: "Building production apps", icon: HiOutlineBriefcase },
-    { label: "Cross-Platform", description: "React Native & React.js", icon: HiOutlineDevicePhoneMobile },
-    { label: "Modern Stack", description: "TypeScript & JavaScript", icon: HiOutlineCodeBracket },
-    { label: "Collaborative", description: "Agile team workflows", icon: HiOutlineUsers },
+    { label: "5+ Years", description: "Building production apps", icon: HiOutlineBriefcase },
+    { label: "Core Stack", description: "React Native, React JS & Next JS", icon: HiOutlineDevicePhoneMobile },
+    { label: "AI-Assisted Dev", description: "Claude AI, ChatGPT, Gemini, Copilot & Cursor", icon: HiOutlineSparkles },
+    { label: "Cloud & DevOps", description: "Azure, Docker, AWS & Cloudflare", icon: HiOutlineCloud },
 ];
 
 const containerVariants = {
@@ -78,8 +77,8 @@ const About = () => {
                         transition={{ duration: 0.4, delay: 0.3 }}
                         className="absolute -right-3 -top-3 rounded-xl border border-neutral-200/80 bg-white/90 px-4 py-3 backdrop-blur-md dark:border-neutral-800/80 dark:bg-neutral-900/90"
                     >
-                        <p className="text-2xl font-bold text-purple-500">4+</p>
-                        <p className="text-xs text-description">Years Exp.</p>
+                        <p className="text-2xl font-bold gradient-text">5+</p>
+                        <p className="text-xs gradient-text">Years Exp.</p>
                     </motion.div>
                 </motion.div>
 
@@ -95,7 +94,8 @@ const About = () => {
                         className="relative overflow-hidden card-surface p-6 md:p-8"
                     >
                         <p className="mb-4 font-light tracking-tighter">
-                            Mobile & Web Developer crafting high-quality, cross-platform applications.
+                            Mobile & Web Developer crafting high-quality, cross-platform applications — accelerated with
+                            AI tools for faster delivery, smarter debugging, and cleaner code.
                         </p>
 
                         <p
