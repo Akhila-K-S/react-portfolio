@@ -3,6 +3,7 @@ import { CONTACT_LINKS } from "../constants";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineEnvelope, HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
+import ThemeToggle from "./ThemeToggle";
 
 const NAV_LINKS = [
     { label: "About", id: "about" },
@@ -31,7 +32,7 @@ const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 20);
+        const onScroll = () => setScrolled(window.scrollY > 12);
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
@@ -51,40 +52,33 @@ const Navbar = () => {
     return (
         <>
             <motion.header
-                initial={{ y: -20, opacity: 0 }}
+                initial={{ y: -16, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className={`fixed left-0 right-0 top-0 z-50 px-4 pt-4 transition-all duration-300 sm:px-6 ${
-                    scrolled ? "pt-3" : "pt-4"
+                transition={{ duration: 0.4 }}
+                className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
+                    scrolled
+                        ? "border-neutral-200/80 bg-white/90 shadow-sm shadow-black/5 backdrop-blur-lg dark:border-neutral-800/80 dark:bg-neutral-950/90 dark:shadow-black/20"
+                        : "border-neutral-200/50 bg-white/70 backdrop-blur-md dark:border-neutral-800/50 dark:bg-neutral-950/70"
                 }`}
             >
-                <nav
-                    className={`mx-auto flex max-w-6xl items-center justify-between rounded-2xl border px-4 py-3 transition-all duration-300 sm:px-6 ${
-                        scrolled
-                            ? "border-neutral-800/80 bg-neutral-950/80 shadow-lg shadow-black/20 backdrop-blur-md"
-                            : "border-transparent bg-transparent"
-                    }`}
-                >
+                <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5 sm:px-8">
                     <button
                         onClick={() => handleNavClick("top")}
-                        className="text-2xl font-bold tracking-tight gradient-text sm:text-3xl"
+                        className="text-xl font-bold tracking-tight gradient-text sm:text-2xl"
                     >
                         {"<Aks/>"}
                     </button>
 
-                    <div className="hidden items-center gap-1 lg:flex">
+                    <div className="hidden items-center gap-0.5 lg:flex">
                         {NAV_LINKS.map((link) => (
-                            <button
-                                key={link.id}
-                                onClick={() => handleNavClick(link.id)}
-                                className="rounded-lg px-3 py-2 text-sm font-light tracking-tighter text-neutral-400 transition-colors hover:bg-neutral-800/50 hover:text-neutral-200"
-                            >
+                            <button key={link.id} onClick={() => handleNavClick(link.id)} className="nav-link">
                                 {link.label}
                             </button>
                         ))}
                     </div>
 
                     <div className="hidden items-center gap-2 md:flex">
+                        <ThemeToggle />
                         {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
                             <a
                                 key={label}
@@ -92,20 +86,23 @@ const Navbar = () => {
                                 rel="noopener noreferrer"
                                 target="_blank"
                                 aria-label={label}
-                                className="flex h-9 w-9 items-center justify-center rounded-lg border border-neutral-800 bg-neutral-900/60 text-neutral-400 transition-all hover:border-neutral-600 hover:text-neutral-200"
+                                className="icon-button h-9 w-9"
                             >
                                 <Icon className="text-lg" />
                             </a>
                         ))}
                     </div>
 
-                    <button
-                        onClick={() => setMenuOpen(!menuOpen)}
-                        className="flex h-10 w-10 items-center justify-center rounded-lg border border-neutral-800 bg-neutral-900/60 text-neutral-300 transition-colors hover:border-neutral-600 lg:hidden"
-                        aria-label={menuOpen ? "Close menu" : "Open menu"}
-                    >
-                        {menuOpen ? <HiOutlineXMark className="text-xl" /> : <HiOutlineBars3 className="text-xl" />}
-                    </button>
+                    <div className="flex items-center gap-2 md:hidden">
+                        <ThemeToggle />
+                        <button
+                            onClick={() => setMenuOpen(!menuOpen)}
+                            className="icon-button h-10 w-10"
+                            aria-label={menuOpen ? "Close menu" : "Open menu"}
+                        >
+                            {menuOpen ? <HiOutlineXMark className="text-xl" /> : <HiOutlineBars3 className="text-xl" />}
+                        </button>
+                    </div>
                 </nav>
             </motion.header>
 
@@ -116,15 +113,15 @@ const Navbar = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="fixed inset-0 z-40 bg-neutral-950/90 backdrop-blur-sm lg:hidden"
+                        className="fixed inset-0 z-40 bg-white/90 backdrop-blur-sm dark:bg-neutral-950/90 lg:hidden"
                         onClick={() => setMenuOpen(false)}
                     >
                         <motion.div
-                            initial={{ opacity: 0, y: -20 }}
+                            initial={{ opacity: 0, y: -12 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.25 }}
-                            className="mx-4 mt-24 rounded-2xl border border-neutral-800 bg-neutral-900/95 p-6"
+                            exit={{ opacity: 0, y: -12 }}
+                            transition={{ duration: 0.2 }}
+                            className="mx-6 mt-[4.5rem] rounded-2xl border border-neutral-200 bg-white/95 p-6 shadow-lg shadow-black/5 dark:border-neutral-800 dark:bg-neutral-900/95 dark:shadow-black/20"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <div className="flex flex-col gap-1">
@@ -132,14 +129,14 @@ const Navbar = () => {
                                     <button
                                         key={link.id}
                                         onClick={() => handleNavClick(link.id)}
-                                        className="rounded-xl px-4 py-3 text-left text-lg font-semibold tracking-tighter gradient-text transition-colors hover:bg-neutral-800/50"
+                                        className="rounded-xl px-4 py-3 text-left text-lg font-semibold tracking-tighter gradient-text transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800/50"
                                     >
                                         {link.label}
                                     </button>
                                 ))}
                             </div>
 
-                            <div className="mt-6 flex justify-center gap-3 border-t border-neutral-800 pt-6">
+                            <div className="mt-6 flex justify-center gap-3 border-t border-neutral-200 pt-6 dark:border-neutral-800">
                                 {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
                                     <a
                                         key={label}
@@ -147,7 +144,7 @@ const Navbar = () => {
                                         rel="noopener noreferrer"
                                         target="_blank"
                                         aria-label={label}
-                                        className="flex h-11 w-11 items-center justify-center rounded-xl border border-neutral-800 bg-neutral-950/60 text-neutral-400 transition-all hover:border-neutral-600 hover:text-neutral-200"
+                                        className="icon-button h-11 w-11"
                                     >
                                         <Icon className="text-xl" />
                                     </a>
@@ -157,8 +154,6 @@ const Navbar = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
-
-            <div className="mb-8 h-16 sm:h-20" />
         </>
     );
 };

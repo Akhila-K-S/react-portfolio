@@ -74,11 +74,11 @@ const SkillItem = ({ skill }) => {
     const Icon = skill.icon;
 
     return (
-        <div className="group/skill flex flex-col items-center gap-2 rounded-xl border border-transparent p-3 transition-all duration-300 hover:border-neutral-700/80 hover:bg-neutral-800/40">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl border-4 border-neutral-800 p-2 transition-all duration-300 group-hover/skill:scale-110">
+        <div className="group/skill flex flex-col items-center gap-2 rounded-xl border border-transparent p-3 transition-all duration-300 hover:border-neutral-200 hover:bg-neutral-100/80 dark:hover:border-neutral-700/80 dark:hover:bg-neutral-800/40">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl border-4 border-neutral-200 p-2 transition-all duration-300 group-hover/skill:scale-110 dark:border-neutral-800">
                 <Icon className={`text-2xl ${skill.color}`} />
             </div>
-            <span className="text-center text-xs font-light tracking-tighter text-neutral-400">{skill.name}</span>
+            <span className="text-center text-xs font-light tracking-tighter text-description">{skill.name}</span>
         </div>
     );
 };
@@ -87,7 +87,7 @@ const CategoryCard = ({ category }) => {
     return (
         <motion.div
             variants={cardVariants}
-            className="group relative overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-neutral-700"
+            className="group card-surface-hover p-6"
         >
             <h3 className="mb-5 text-sm font-semibold uppercase tracking-[0.15em] tracking-tighter gradient-text">
                 {category.title}
@@ -106,7 +106,7 @@ const Technologies = () => {
     const totalSkills = SKILL_CATEGORIES.reduce((sum, cat) => sum + cat.skills.length, 0);
 
     return (
-        <section id="skills" className="border-b border-neutral-900 pb-16">
+        <section id="skills" className="section-divider pb-16">
             <motion.div
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -40 }}

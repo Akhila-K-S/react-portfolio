@@ -5,10 +5,43 @@
 
 :root {
   font-family: "Inter", sans-serif;
+  scroll-padding-top: 5rem;
 }
 
 @layer components {
   .gradient-text {
-    @apply tracking-tight bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent;
+    @apply tracking-tight bg-gradient-to-r from-pink-500 via-slate-600 to-purple-600 bg-clip-text text-transparent;
+  }
+
+  [data-theme="dark"] .gradient-text {
+    @apply from-pink-300 via-slate-500 to-purple-500;
+  }
+
+  .section-divider {
+    @apply border-b border-neutral-200 dark:border-neutral-900;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-neutral-200/80 bg-white/80 backdrop-blur-sm dark:border-neutral-800/80 dark:bg-neutral-900/40;
+  }
+
+  .card-surface-hover {
+    @apply card-surface transition-all duration-300 hover:border-neutral-300 hover:bg-white dark:hover:border-neutral-700 dark:hover:bg-neutral-900/60;
+  }
+
+  .text-description {
+    @apply font-light tracking-tighter text-neutral-600 dark:text-neutral-400;
+  }
+
+  .tag-surface {
+    @apply rounded bg-neutral-100 dark:bg-neutral-900;
+  }
+
+  .icon-button {
+    @apply flex items-center justify-center rounded-lg border border-neutral-300 bg-white/80 text-neutral-600 transition-all hover:border-neutral-400 hover:text-neutral-900 dark:border-neutral-800 dark:bg-neutral-900/60 dark:text-neutral-400 dark:hover:border-neutral-600 dark:hover:text-neutral-200;
+  }
+
+  .nav-link {
+    @apply rounded-lg px-3 py-2 text-sm font-light tracking-tighter text-neutral-600 transition-colors hover:bg-neutral-200/60 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800/50 dark:hover:text-neutral-200;
   }
 }

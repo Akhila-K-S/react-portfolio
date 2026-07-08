@@ -61,18 +61,18 @@ const ContactCard = ({ item, copiedId, onCopy }) => {
         <motion.div
             variants={cardVariants}
             whileHover={{ y: -4 }}
-            className="group relative overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900/60 hover:shadow-[0_8px_40px_-12px_rgba(168,85,247,0.2)]"
+            className="group relative overflow-hidden card-surface-hover p-6 hover:shadow-[0_8px_40px_-12px_rgba(168,85,247,0.2)]"
         >
             <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-purple-500/5 blur-2xl transition-opacity group-hover:bg-purple-500/10" />
 
             <div className="mb-4 flex items-start justify-between">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-neutral-800 bg-neutral-950/60 transition-transform duration-300 group-hover:scale-110">
-                    <Icon className="text-xl text-neutral-300" />
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-neutral-300 bg-neutral-100 transition-transform duration-300 group-hover:scale-110 dark:border-neutral-800 dark:bg-neutral-950/60">
+                    <Icon className="text-xl text-neutral-600 dark:text-neutral-300" />
                 </div>
                 {item.copyable && (
                     <button
                         onClick={() => onCopy(item.id, item.value)}
-                        className="flex h-9 w-9 items-center justify-center rounded-lg border border-neutral-800 bg-neutral-950/60 text-neutral-400 transition-all hover:border-neutral-600 hover:text-neutral-200"
+                        className="icon-button h-9 w-9"
                         aria-label={`Copy ${item.label}`}
                     >
                         {isCopied ? (
@@ -91,12 +91,12 @@ const ContactCard = ({ item, copiedId, onCopy }) => {
                     href={item.href}
                     rel="noopener noreferrer"
                     target={item.id === "location" ? "_blank" : undefined}
-                    className="block font-light tracking-tighter text-neutral-400 transition-colors hover:text-neutral-300"
+                    className="block text-description transition-colors hover:text-neutral-700 dark:hover:text-neutral-300"
                 >
                     {item.value}
                 </a>
             ) : (
-                <p className="font-light tracking-tighter text-neutral-400">{item.value}</p>
+                <p className="text-description">{item.value}</p>
             )}
 
             {isCopied && (
@@ -126,7 +126,7 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="border-b border-neutral-900 pb-20">
+        <section id="contact" className="section-divider pb-20">
             <motion.div
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -40 }}
@@ -160,7 +160,7 @@ const Contact = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="mx-auto mt-12 max-w-5xl"
             >
-                <div className="rounded-2xl border border-neutral-800/80 bg-neutral-900/40 p-8 backdrop-blur-sm">
+                <div className="card-surface p-8">
                     <p className="mb-6 text-center text-sm gradient-text">Find me on</p>
                     <div className="flex flex-wrap items-center justify-center gap-4">
                         {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
@@ -169,9 +169,9 @@ const Contact = () => {
                                 href={href}
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                className="group flex items-center gap-3 rounded-xl border border-neutral-800 bg-neutral-950/60 px-5 py-3 transition-all duration-300 hover:border-neutral-600 hover:bg-neutral-900/80"
+                                className="group flex items-center gap-3 rounded-xl border border-neutral-300 bg-neutral-100 px-5 py-3 transition-all duration-300 hover:border-neutral-400 hover:bg-neutral-200/80 dark:border-neutral-800 dark:bg-neutral-950/60 dark:hover:border-neutral-600 dark:hover:bg-neutral-900/80"
                             >
-                                <Icon className="text-xl text-neutral-400 transition-colors group-hover:text-neutral-200" />
+                                <Icon className="text-xl text-neutral-600 transition-colors group-hover:text-neutral-900 dark:text-neutral-400 dark:group-hover:text-neutral-200" />
                                 <span className="text-sm font-semibold tracking-tighter gradient-text">{label}</span>
                             </a>
                         ))}
@@ -180,7 +180,7 @@ const Contact = () => {
                     <div className="mt-8 flex flex-wrap justify-center gap-3">
                         <a
                             href={`mailto:${CONTACT.email}`}
-                            className="inline-flex items-center gap-2 rounded-xl border border-neutral-700 bg-neutral-900/60 px-6 py-3 text-sm font-semibold tracking-tighter transition-all hover:border-neutral-600 hover:bg-neutral-800/60"
+                            className="inline-flex items-center gap-2 rounded-xl border border-neutral-300 bg-white/80 px-6 py-3 text-sm font-semibold tracking-tighter transition-all hover:border-neutral-400 hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-900/60 dark:hover:border-neutral-600 dark:hover:bg-neutral-800/60"
                         >
                             <HiOutlineEnvelope className="text-base" />
                             Send an Email
@@ -189,7 +189,7 @@ const Contact = () => {
                             href={CONTACT_LINKS.linkedIn}
                             rel="noopener noreferrer"
                             target="_blank"
-                            className="inline-flex items-center gap-2 rounded-xl border border-neutral-700 bg-neutral-900/60 px-6 py-3 text-sm font-semibold tracking-tighter gradient-text transition-all hover:border-neutral-600 hover:bg-neutral-800/60"
+                            className="inline-flex items-center gap-2 rounded-xl border border-neutral-300 bg-white/80 px-6 py-3 text-sm font-semibold tracking-tighter gradient-text transition-all hover:border-neutral-400 hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-900/60 dark:hover:border-neutral-600 dark:hover:bg-neutral-800/60"
                         >
                             <FaLinkedin className="text-base" />
                             Connect on LinkedIn

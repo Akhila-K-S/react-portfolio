@@ -32,7 +32,7 @@ const About = () => {
     const isLong = ABOUT_TEXT.length > 320;
 
     return (
-        <section id="about" className="border-b border-neutral-900 pb-16">
+        <section id="about" className="section-divider pb-16">
             <motion.div
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -40 }}
@@ -56,12 +56,12 @@ const About = () => {
                     className="relative mx-auto w-full max-w-md lg:max-w-none"
                 >
                     <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-purple-500/25 via-pink-500/10 to-purple-500/25 blur-xl" />
-                    <div className="relative overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900/40 p-1.5 backdrop-blur-sm">
+                    <div className="relative overflow-hidden rounded-2xl card-surface p-1.5">
                         <img src={aboutImg} alt="Akhila K S" className="aspect-[4/5] w-full rounded-xl object-cover" />
-                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-neutral-950 via-neutral-950/60 to-transparent p-6 pt-16">
+                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white via-white/60 to-transparent p-6 pt-16 dark:from-neutral-950 dark:via-neutral-950/60">
                             <div className="flex items-center gap-2">
-                                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-neutral-900 ring-1 ring-neutral-800">
-                                    <HiOutlineSparkles className="text-sm text-neutral-300" />
+                                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-neutral-100 ring-1 ring-neutral-200 dark:bg-neutral-900 dark:ring-neutral-800">
+                                    <HiOutlineSparkles className="text-sm text-neutral-600 dark:text-neutral-300" />
                                 </span>
                                 <div>
                                     <p className="text-sm font-semibold tracking-tighter gradient-text">Akhila K S</p>
@@ -76,10 +76,10 @@ const About = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: 0.3 }}
-                        className="absolute -right-3 -top-3 rounded-xl border border-neutral-800/80 bg-neutral-900/90 px-4 py-3 backdrop-blur-md"
+                        className="absolute -right-3 -top-3 rounded-xl border border-neutral-200/80 bg-white/90 px-4 py-3 backdrop-blur-md dark:border-neutral-800/80 dark:bg-neutral-900/90"
                     >
                         <p className="text-2xl font-bold text-purple-500">4+</p>
-                        <p className="text-xs text-neutral-400">Years Exp.</p>
+                        <p className="text-xs text-description">Years Exp.</p>
                     </motion.div>
                 </motion.div>
 
@@ -92,14 +92,14 @@ const About = () => {
                 >
                     <motion.div
                         variants={itemVariants}
-                        className="relative overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900/40 p-6 backdrop-blur-sm md:p-8"
+                        className="relative overflow-hidden card-surface p-6 md:p-8"
                     >
                         <p className="mb-4 font-light tracking-tighter">
                             Mobile & Web Developer crafting high-quality, cross-platform applications.
                         </p>
 
                         <p
-                            className={`font-light tracking-tighter text-justify text-neutral-400 ${
+                            className={`text-description text-justify ${
                                 !expanded && isLong ? "line-clamp-5" : ""
                             }`}
                         >
@@ -123,13 +123,13 @@ const About = () => {
                                 <motion.div
                                     key={item.label}
                                     variants={itemVariants}
-                                    className="group rounded-xl border border-neutral-800/80 bg-neutral-900/40 p-4 backdrop-blur-sm transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900/60"
+                                    className="group card-surface-hover p-4"
                                 >
-                                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-950/60 ring-1 ring-neutral-800 transition-transform duration-300 group-hover:scale-110">
-                                        <Icon className="text-lg text-neutral-300" />
+                                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-neutral-100 ring-1 ring-neutral-200 transition-transform duration-300 group-hover:scale-110 dark:bg-neutral-950/60 dark:ring-neutral-800">
+                                        <Icon className="text-lg text-neutral-600 dark:text-neutral-300" />
                                     </div>
                                     <p className="text-sm font-semibold tracking-tighter gradient-text">{item.label}</p>
-                                    <p className="mt-0.5 text-xs font-light tracking-tighter text-neutral-400">{item.description}</p>
+                                    <p className="mt-0.5 text-xs text-description">{item.description}</p>
                                 </motion.div>
                             );
                         })}

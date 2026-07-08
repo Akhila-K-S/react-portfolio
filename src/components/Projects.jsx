@@ -26,14 +26,14 @@ const ProjectCard = ({ project }) => {
 
     return (
         <motion.article variants={cardVariants}>
-            <div className="group relative h-full overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900/40 backdrop-blur-sm transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900/60">
+            <div className="group relative h-full overflow-hidden card-surface-hover">
                 <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[16/10]">
                     <img
                         src={project.image}
                         alt={project.title}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent dark:from-neutral-950 dark:via-neutral-950/20" />
                 </div>
 
                 <div className="relative flex flex-col tracking-tighter p-3 sm:p-6">
@@ -57,7 +57,7 @@ const ProjectCard = ({ project }) => {
                                 href={project.link}
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                className="inline-flex shrink-0 items-center gap-1 text-[10px] tracking-tighter text-neutral-300 hover:underline sm:gap-1.5 sm:text-sm"
+                                className="inline-flex shrink-0 items-center gap-1 text-[10px] tracking-tighter text-description hover:underline sm:gap-1.5 sm:text-sm"
                             >
                                 Visit
                                 <HiOutlineArrowTopRightOnSquare className="text-xs opacity-60" />
@@ -66,7 +66,7 @@ const ProjectCard = ({ project }) => {
                     </div>
 
                     <p
-                        className={`font-light leading-snug tracking-tighter text-neutral-400 text-[11px] sm:text-sm sm:leading-relaxed sm:text-justify ${
+                        className={`text-description leading-snug text-[11px] sm:text-sm sm:leading-relaxed sm:text-justify ${
                             !expanded && isLong ? "line-clamp-2 sm:line-clamp-3" : ""
                         }`}
                     >
@@ -87,7 +87,7 @@ const ProjectCard = ({ project }) => {
                             {visibleTech.map((tech, techIndex) => (
                                 <span
                                     key={techIndex}
-                                    className="rounded bg-neutral-900 px-1.5 py-0.5 text-[10px] font-light tracking-tighter gradient-text sm:px-2 sm:py-1 sm:text-sm"
+                                    className="tag-surface px-1.5 py-0.5 text-[10px] font-light tracking-tighter gradient-text sm:px-2 sm:py-1 sm:text-sm"
                                 >
                                     {tech}
                                 </span>
@@ -95,7 +95,7 @@ const ProjectCard = ({ project }) => {
                             {hiddenTechCount > 0 && !showAllTech && (
                                 <button
                                     onClick={() => setShowAllTech(true)}
-                                    className="rounded bg-neutral-900 px-1.5 py-0.5 text-[10px] font-light tracking-tighter gradient-text hover:underline sm:px-2 sm:py-1 sm:text-sm"
+                                    className="tag-surface px-1.5 py-0.5 text-[10px] font-light tracking-tighter gradient-text hover:underline sm:px-2 sm:py-1 sm:text-sm"
                                 >
                                     +{hiddenTechCount}
                                 </button>
@@ -118,7 +118,7 @@ const ProjectCard = ({ project }) => {
 
 const Projects = () => {
     return (
-        <section id="projects" className="border-b border-neutral-900 pb-16">
+        <section id="projects" className="section-divider pb-16">
             <motion.div
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -40 }}

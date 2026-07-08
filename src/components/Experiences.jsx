@@ -27,27 +27,27 @@ const ExperienceCard = ({ experience, index, isLast }) => {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 ${
                         isCurrent
-                            ? "border-purple-500/50 bg-neutral-900 shadow-[0_0_20px_rgba(168,85,247,0.2)]"
-                            : "border-neutral-700 bg-neutral-900"
+                            ? "border-purple-500/50 bg-neutral-100 shadow-[0_0_20px_rgba(168,85,247,0.15)] dark:bg-neutral-900 dark:shadow-[0_0_20px_rgba(168,85,247,0.2)]"
+                            : "border-neutral-300 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-900"
                     }`}
                 >
-                    <HiOutlineBriefcase className="text-sm text-neutral-400" />
+                    <HiOutlineBriefcase className="text-sm text-description" />
                 </motion.div>
                 {!isLast && (
-                    <div className="absolute top-10 h-[calc(100%+1.5rem)] w-px bg-gradient-to-b from-purple-500/50 via-neutral-700 to-neutral-800" />
+                    <div className="absolute top-10 h-[calc(100%+1.5rem)] w-px bg-gradient-to-b from-purple-500/50 via-neutral-400 to-neutral-300 dark:via-neutral-700 dark:to-neutral-800" />
                 )}
             </div>
 
             <div className="group mb-10 flex-1 pb-2 tracking-tighter">
-                <div className="relative overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900/60 md:p-8">
+                <div className="card-surface-hover p-6 md:p-8">
                     <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
                         <div className="space-y-1">
                             <div className="flex flex-wrap items-center gap-2">
-                                <span className="inline-flex items-center rounded-full bg-neutral-800 px-3 py-1 text-xs font-light tracking-tighter text-neutral-400">
+                                <span className="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-xs font-light tracking-tighter text-description dark:bg-neutral-800">
                                     {experience.year}
                                 </span>
                                 {isCurrent && (
-                                    <span className="inline-flex items-center gap-1 rounded-full bg-neutral-800 px-2.5 py-1 text-xs font-light tracking-tighter text-purple-500">
+                                    <span className="inline-flex items-center gap-1 rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-light tracking-tighter gradient-text dark:bg-neutral-800">
                                         <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-purple-500" />
                                         Current
                                     </span>
@@ -71,7 +71,7 @@ const ExperienceCard = ({ experience, index, isLast }) => {
                         )}
                     </div>
 
-                    <p className={`font-light tracking-tighter text-justify text-neutral-400 ${!expanded && isLong ? "line-clamp-3" : ""}`}>
+                    <p className={`text-description text-justify ${!expanded && isLong ? "line-clamp-3" : ""}`}>
                         {experience.description}
                     </p>
 
@@ -83,7 +83,7 @@ const ExperienceCard = ({ experience, index, isLast }) => {
 
                     <div className="mt-5 flex flex-wrap gap-2">
                         {experience.technologies.map((tech, techIndex) => (
-                            <span key={techIndex} className="rounded bg-neutral-900 px-2 py-1 text-sm font-light tracking-tighter gradient-text">
+                            <span key={techIndex} className="tag-surface px-2 py-1 text-sm font-light tracking-tighter gradient-text">
                                 {tech}
                             </span>
                         ))}
@@ -96,7 +96,7 @@ const ExperienceCard = ({ experience, index, isLast }) => {
 
 const Experiences = () => {
     return (
-        <section id="experiences" className="border-b border-neutral-900 pb-16">
+        <section id="experiences" className="section-divider pb-16">
             <motion.div
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -40 }}
